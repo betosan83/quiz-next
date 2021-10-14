@@ -6,7 +6,8 @@ export default function questions(req, res) {
     
     if (oneOrNothing.length === 1) {
         const selectedQuestion = oneOrNothing[0].shuffleAnswers()
-        res.status(200).json(selectedQuestion.toObject())
+        const obj = selectedQuestion.awswerWith(0).toObject()
+        res.status(200).json(obj)
     } else {
         res.status(204).send()
     }

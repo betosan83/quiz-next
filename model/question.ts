@@ -40,6 +40,16 @@ export default class QuestionModel {
         return false
     }
 
+    awswerWith(index: number): QuestionModel {
+        const hitRight = this.#answers[index]?.rightAnswer
+        const answers = this.#answers.map((answer, i) => {
+            const selectedAnswer = index === i
+            const mustReveal = selectedAnswer || answer.rightAnswer
+            return mustReveal ? answer.reveal() : answer
+        })
+        return new QuestionModel(this.#id, this.#title, this.#subtitle, answers, hitRight)
+    }
+
     shuffleAnswers(): QuestionModel {
         let shuffledAnswers = shuffle(this.#answers)
         return new QuestionModel(this.#id, this.#title, this.#subtitle, shuffledAnswers, this.#rightAnswer)
