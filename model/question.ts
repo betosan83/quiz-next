@@ -9,12 +9,12 @@ export default class QuestionModel {
     #rightAnswer: boolean
     //#answered
 
-    constructor(id: number, title: string, subtitle: string, answers: AnswerModel[], rightAnswer: boolean) {
+    constructor(id: number, title: string, subtitle: string, answers: AnswerModel[], rightAnswer = false) {
         this.#id = id
         this.#title = title
+        this.#subtitle = subtitle
         this.#answers = answers
         this.#rightAnswer = rightAnswer
-        this.#subtitle = subtitle
     }
 
     get id() {
@@ -47,7 +47,7 @@ export default class QuestionModel {
             const mustReveal = selectedAnswer || answer.rightAnswer
             return mustReveal ? answer.reveal() : answer
         })
-        return new QuestionModel(this.#id, this.#title, this.#subtitle, answers, hitRight)
+        return new QuestionModel(this.id, this.title, this.subtitle, answers, hitRight)
     }
 
     shuffleAnswers(): QuestionModel {

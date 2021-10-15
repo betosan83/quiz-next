@@ -8,13 +8,12 @@ const testQuestion = new QuestionModel(1, 'Testing', 'test', [
   AnswerModel.wrong('Blue'),
   AnswerModel.wrong('Red'),
   AnswerModel.right('Black')
-], false)
+])
 
 export default function Home() {
   const [question, setQuestion] = useState(testQuestion)
 
   function answerSelected(index: number) {
-    console.log(index)
     setQuestion(question.awswerWith(index))
   }
 
