@@ -6,15 +6,15 @@ export default class QuestionModel {
     #title: string
     #subtitle: string
     #answers: AnswerModel[]
-    #rightAnswer: boolean
+    #right: boolean
     //#answered
 
-    constructor(id: number, title: string, subtitle: string, answers: AnswerModel[], rightAnswer = false) {
+    constructor(id: number, title: string, subtitle: string, answers: AnswerModel[], right = false) {
         this.#id = id
         this.#title = title
         this.#subtitle = subtitle
         this.#answers = answers
-        this.#rightAnswer = rightAnswer
+        this.#right = right
     }
 
     get id() {
@@ -29,8 +29,8 @@ export default class QuestionModel {
     get answers() {
         return this.#answers
     }
-    get rightAnswer() {
-        return this.#rightAnswer
+    get right() {
+        return this.#right
     }
 
     get answered() {
@@ -40,11 +40,12 @@ export default class QuestionModel {
         return false
     }
 
-    awswerWith(index: number): QuestionModel {
+    answerWith(index: number): QuestionModel {
         const hitRight = this.#answers[index]?.rightAnswer
         const answers = this.#answers.map((answer, i) => {
             const selectedAnswer = index === i
             const mustReveal = selectedAnswer || answer.rightAnswer
+            console.log(answer.revealed)
             return mustReveal ? answer.reveal() : answer
         })
         return new QuestionModel(this.id, this.title, this.subtitle, answers, hitRight)
@@ -52,7 +53,7 @@ export default class QuestionModel {
 
     shuffleAnswers(): QuestionModel {
         let shuffledAnswers = shuffle(this.#answers)
-        return new QuestionModel(this.#id, this.#title, this.#subtitle, shuffledAnswers, this.#rightAnswer)
+        return new QuestionModel(this.#id, this.#title, this.#subtitle, shuffledAnswers, this.#right)
     }
 
     toObject() {
@@ -60,8 +61,9 @@ export default class QuestionModel {
             id: this.#id,
             title: this.#title,
             subtitle: this.#subtitle,
-            answers: this.#answers.map(resp => resp.toObject()),
-            rightAnswer: this.#rightAnswer
+            answered: this.answered,
+            right: this.#right,
+            answers: this.#answers.map(resp => resp.toObject())
         }
     }
 }

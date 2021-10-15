@@ -6,14 +6,15 @@ interface AnswerProps {
     index: number
     letter: string
     backgroundLetterCollor: string
-    answerSelected: (index: number) => void
+    onResponse: (index: number) => void
 }
 
 export default function Answer(props: AnswerProps) {
     const answer = props.value
+    console.log(answer.revealed)
     return (
         <div className={styles.answer}
-            onClick={() => props.answerSelected(props.index)}>
+            onClick={() => props.onResponse(props.index)}>
             <div className={styles.answerContent}>
                 {!answer.revealed ? (
                     <div className={styles.front}>
