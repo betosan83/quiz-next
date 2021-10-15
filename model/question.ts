@@ -45,7 +45,6 @@ export default class QuestionModel {
         const answers = this.#answers.map((answer, i) => {
             const selectedAnswer = index === i
             const mustReveal = selectedAnswer || answer.rightAnswer
-            console.log(answer.revealed)
             return mustReveal ? answer.reveal() : answer
         })
         return new QuestionModel(this.id, this.title, this.subtitle, answers, hitRight)

@@ -11,7 +11,6 @@ interface AnswerProps {
 
 export default function Answer(props: AnswerProps) {
     const answer = props.value
-    console.log(answer.revealed)
     return (
         <div className={styles.answer}
             onClick={() => props.onResponse(props.index)}>

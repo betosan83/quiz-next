@@ -14,10 +14,12 @@ export default function Home() {
   const [question, setQuestion] = useState(testQuestion)
 
   function onResponse(index: number) {
-    /*console.log("Index"  + index) */
     setQuestion(question.answerWith(index))
   }
-
+  function timeOut() {
+    setQuestion(question.answerWith(-1))
+  }
+  
   return (
     <div style={{
       display: 'flex',
@@ -27,7 +29,8 @@ export default function Home() {
     }}>
 
       <Question value={testQuestion}
-         onResponse={onResponse} />
+         onResponse={onResponse} 
+         timeOut={timeOut}/>
 
     </div>
   )
