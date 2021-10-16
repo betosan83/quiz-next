@@ -33,9 +33,15 @@ export default class QuestionModel {
         return this.#right
     }
 
+    get notAnswered() {
+        return !this.answered
+    }
+
     get answered() {
         for(let answer of this.#answers) {
-            if(answer.revealed) return true
+            if(answer.revealed) {
+                return true
+            }
         }
         return false
     }
@@ -62,7 +68,7 @@ export default class QuestionModel {
             subtitle: this.#subtitle,
             answered: this.answered,
             right: this.#right,
-            answers: this.#answers.map(resp => resp.toObject())
+            answers: this.#answers.map(ans => ans.toObject())
         }
     }
 }

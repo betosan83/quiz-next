@@ -17,7 +17,9 @@ export default function Home() {
     setQuestion(question.answerWith(index))
   }
   function timeOut() {
-    setQuestion(question.answerWith(-1))
+    if (question.notAnswered) {
+      setQuestion(question.answerWith(-1))
+    }
   }
   
   return (
