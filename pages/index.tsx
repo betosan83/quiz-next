@@ -26,7 +26,8 @@ export default function Home() {
       // Json represent the QuestionModel object.
       // Now the goal is to transform it into an QuestionModel object.
       const questionJson = await resp.json()
-      console.log(questionJson)
+      const newQuestion = QuestionModel.createUsingObject(questionJson)
+      setQuestion(newQuestion)
   }
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function Home() {
   }, [questionsIds])
 
   function questionAnswered(question: QuestionModel) {
-
+    setQuestion(question)
   }
   function goToNextQuestion() {
 
