@@ -7,7 +7,7 @@ interface SurveyProps {
     question: QuestionModel
     last: boolean
     questionAnswered: (question: QuestionModel) => void
-    goToNextQuestion: () => void
+    goToNextStep: () => void
 }
 
 export default function Survey(props: SurveyProps) {
@@ -25,10 +25,10 @@ export default function Survey(props: SurveyProps) {
                     value={props.question}
                     timeToAnswer={6}
                     onResponse={onResponse}
-                    timeOut={props.goToNextQuestion} />
+                    timeOut={props.goToNextStep} />
                 : false
             }
-            <Button onClick={props.goToNextQuestion}
+            <Button onClick={props.goToNextStep}
                 text={props.last ? 'Finish' : 'Next'}/>
         </div>
     )

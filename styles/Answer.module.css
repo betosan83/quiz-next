@@ -4,6 +4,7 @@
     min-width: 500px;
     height: 100px;
     margin: 10px;
+    perspective: 1000px;
 }
 
 .answerContent {

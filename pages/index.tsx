@@ -18,17 +18,17 @@ export default function Home() {
   const [rightQuestions, setRightQuestions] = useState<number>(0)
 
   async function loadQuestionsIds() {
-      const resp = await fetch(`${BASE_URL}/survey`)
-      const questionsIds = await resp.json()
-      setQuestionsIds(questionsIds)
+    const resp = await fetch(`${BASE_URL}/survey`)
+    const questionsIds = await resp.json()
+    setQuestionsIds(questionsIds)
   }
   async function loadQuestion(questionsId: number) {
-      const resp = await fetch(`${BASE_URL}/questions/${questionsId}`)
-      // Json represent the QuestionModel object.
-      // Now the goal is to transform it into an QuestionModel object.
-      const questionJson = await resp.json()
-      const newQuestion = QuestionModel.createUsingObject(questionJson)
-      setQuestion(newQuestion)
+    const resp = await fetch(`${BASE_URL}/questions/${questionsId}`)
+    // Json represent the QuestionModel object.
+    // Now the goal is to transform it into an QuestionModel object.
+    const questionJson = await resp.json()
+    const newQuestion = QuestionModel.createUsingObject(questionJson)
+    setQuestion(newQuestion)
   }
 
   useEffect(() => {
@@ -41,26 +41,36 @@ export default function Home() {
 
   function questionAnswered(question: QuestionModel) {
     setQuestion(question)
+    const right = question.right
+    setRightQuestions(rightQuestions + (right ? 1 : 0))
   }
-  function goToNextQuestion() {
+
+  function idNextQuestion() {
+    const nextIndex = questionsIds.indexOf(question.id) + 1
+    return questionsIds[nextIndex]
+  }
+
+  function goToNextStep() {
+    const nextId = idNextQuestion()
+    nextId ? goToNextQuestion(nextId) : endSurvey()
+  }
+
+  function goToNextQuestion(nextId: number) {
+    loadQuestion(nextId)
+  }
+
+  function endSurvey() {
 
   }
-  
+
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh'
-    }}>
-      <Survey 
+    
+      <Survey
         question={question}
-        last={true}
+        last={idNextQuestion() === undefined}
         questionAnswered={questionAnswered}
-        goToNextQuestion={goToNextQuestion}
+        goToNextStep={goToNextStep}
       />
-        
-    </div>
+
   )
 }
