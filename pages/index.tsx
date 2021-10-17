@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Button from '../components/Button'
 import Question from '../components/Question'
 import AnswerModel from '../model/answer'
 import QuestionModel from '../model/question'
@@ -25,16 +26,17 @@ export default function Home() {
   return (
     <div style={{
       display: 'flex',
+      flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh'
     }}>
 
       <Question value={question}
-      timeToAnswer={5}
-         onResponse={onResponse} 
-         timeOut={timeOut}/>
-
+          timeToAnswer={5}
+          onResponse={onResponse} 
+           timeOut={timeOut}/>
+      <Button text={'Next'} href="/result"/>
     </div>
   )
 }
