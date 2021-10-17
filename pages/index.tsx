@@ -15,6 +15,7 @@ const BASE_URL = 'http://localhost:3000/api'
 export default function Home() {
   const [questionsIds, setQuestionsIds] = useState<number[]>([])
   const [question, setQuestion] = useState(testQuestion)
+  const [rightQuestions, setRightQuestions] = useState<number>(0)
 
   async function loadQuestionsIds() {
       const resp = await fetch(`${BASE_URL}/survey`)
