@@ -30,7 +30,8 @@ export default function Home() {
       height: '100vh'
     }}>
 
-      <Question value={testQuestion}
+      <Question value={question}
+      timeToAnswer={5}
          onResponse={onResponse} 
          timeOut={timeOut}/>
 
