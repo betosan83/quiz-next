@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import Button from '../components/Button'
-import Question from '../components/Question'
+import Survey from '../components/Survey'
 import AnswerModel from '../model/answer'
 import QuestionModel from '../model/question'
 
@@ -11,16 +10,16 @@ const testQuestion = new QuestionModel(1, 'Testing', 'test', [
   AnswerModel.right('Black'),
 ])
 
+const BASE_URL = 'http://localhost:3000/api'
+
 export default function Home() {
   const [question, setQuestion] = useState(testQuestion)
 
-  function onResponse(index: number) {
-    setQuestion(question.answerWith(index))
+  function questionAnswered(question: QuestionModel) {
+
   }
-  function timeOut() {
-    if (question.notAnswered) {
-      setQuestion(question.answerWith(-1))
-    }
+  function goToNextQuestion() {
+
   }
   
   return (
@@ -31,12 +30,13 @@ export default function Home() {
       alignItems: 'center',
       height: '100vh'
     }}>
-
-      <Question value={question}
-          timeToAnswer={5}
-          onResponse={onResponse} 
-           timeOut={timeOut}/>
-      <Button text={'Next'} href="/result"/>
+      <Survey 
+        question={question}
+        last={true}
+        questionAnswered={questionAnswered}
+        goToNextQuestion={goToNextQuestion}
+      />
+        
     </div>
   )
 }
