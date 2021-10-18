@@ -41,10 +41,8 @@ export default function Home() {
   }
 
   function idNextQuestion() {
-    if(question) {
       const nextIndex = questionsIds.indexOf(question.id) + 1
       return questionsIds[nextIndex]
-    }
   }
 
   function goToNextStep() {
@@ -57,17 +55,22 @@ export default function Home() {
   }
 
   function endSurvey() {
-    router.push("/result")
+    router.push({
+      pathname: "/result",
+      query: {
+        total: questionsIds.length,
+        rights: rightQuestions
+      }
+    })
   }
 
-  return (
-    
+  return question ? (
       <Survey
         question={question}
         last={idNextQuestion() === undefined}
         questionAnswered={questionAnswered}
         goToNextStep={goToNextStep}
       />
-
-  )
+  ): false
+  
 }
