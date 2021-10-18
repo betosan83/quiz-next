@@ -1,6 +1,7 @@
 import QuestionModel from "../model/question";
 import styles from '../styles/Question.module.css'
 import Answer from "./Answer";
+import Subtitle from "./Subtitle";
 import Timer from "./Timer";
 import Title from "./Title";
 
@@ -38,6 +39,7 @@ export default function Question(props: QuestionProps) {
     return (
         <div className={styles.question}>
             <Title text={question.title}/>
+            <Subtitle text={question.subtitle}/>
             <Timer duration={props.timeToAnswer ?? 10} timeOut={props.timeOut}/>
             {renderAnswers()}
         </div>
