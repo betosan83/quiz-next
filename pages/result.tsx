@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+import Button from "../components/Button"
 import Summary from "../components/Summary"
 import styles from '../styles/Result.module.css'
 
@@ -9,7 +10,7 @@ export default function Result() {
     const percent = Math.round((rightQuestions / total) * 100)
     return (
         <div className={styles.result}>
-            <h1>Result</h1>
+            <h1>Résumé</h1>
             <div style={{ display: 'flex' }}>
                 <Summary text="Questions" value={total}/>
                 <Summary text="Bonnes réponses" value={rightQuestions}
@@ -17,6 +18,7 @@ export default function Result() {
                 <Summary text="Résultat final" value={`${percent}%`}
                 backgroundColor="#de6a33"/>
             </div>
+            <Button href="/" text={"Réessayer"}/>
         </div>
     )
 }

@@ -24,6 +24,12 @@
     height: 100%;
     width: 100%;
     position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
 }
 
 .front {

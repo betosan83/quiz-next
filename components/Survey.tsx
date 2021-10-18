@@ -23,13 +23,13 @@ export default function Survey(props: SurveyProps) {
             {props.question ? 
                 <Question
                     value={props.question}
-                    timeToAnswer={6}
+                    timeToAnswer={10}
                     onResponse={onResponse}
                     timeOut={props.goToNextStep} />
                 : false
             }
             <Button onClick={props.goToNextStep}
-                text={props.last ? 'Finish' : 'Next'}/>
+                text={props.last ? 'Terminer' : 'Suivant'}/>
         </div>
     )
 }
