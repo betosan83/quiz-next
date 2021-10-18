@@ -1,20 +1,15 @@
 import { useEffect, useState } from 'react'
 import Survey from '../components/Survey'
-import AnswerModel from '../model/answer'
 import QuestionModel from '../model/question'
-
-const testQuestion = new QuestionModel(1, 'Testing', 'test', [
-  AnswerModel.wrong('Green'),
-  AnswerModel.wrong('Blue'),
-  AnswerModel.wrong('Red'),
-  AnswerModel.right('Black'),
-])
+import  { useRouter } from 'next/router'
 
 const BASE_URL = 'http://localhost:3000/api'
 
 export default function Home() {
+  const router = useRouter()
+
   const [questionsIds, setQuestionsIds] = useState<number[]>([])
-  const [question, setQuestion] = useState(testQuestion)
+  const [question, setQuestion] = useState<QuestionModel>()
   const [rightQuestions, setRightQuestions] = useState<number>(0)
 
   async function loadQuestionsIds() {
@@ -46,8 +41,10 @@ export default function Home() {
   }
 
   function idNextQuestion() {
-    const nextIndex = questionsIds.indexOf(question.id) + 1
-    return questionsIds[nextIndex]
+    if(question) {
+      const nextIndex = questionsIds.indexOf(question.id) + 1
+      return questionsIds[nextIndex]
+    }
   }
 
   function goToNextStep() {
@@ -60,7 +57,7 @@ export default function Home() {
   }
 
   function endSurvey() {
-
+    router.push("/result")
   }
 
   return (
