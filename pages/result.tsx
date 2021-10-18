@@ -1,8 +1,22 @@
+import { useRouter } from "next/router"
+import Summary from "../components/Summary"
+import styles from '../styles/Result.module.css'
 
-export default function result() {
+export default function Result() {
+    const router = useRouter()
+    const total = +router.query.total
+    const rightQuestions = +router.query.rights
+    const percent = Math.round((rightQuestions / total) * 100)
     return (
-        <div>
+        <div className={styles.result}>
             <h1>Result</h1>
+            <div style={{ display: 'flex' }}>
+                <Summary text="Questions" value={total}/>
+                <Summary text="Bonnes réponses" value={rightQuestions}
+                backgroundColor="#9cd2a4"/>
+                <Summary text="Résultat final" value={`${percent}%`}
+                backgroundColor="#de6a33"/>
+            </div>
         </div>
     )
 }
