@@ -56,6 +56,13 @@ export default class QuestionModel {
         return new QuestionModel(this.id, this.title, this.subtitle, answers, hitRight)
     }
 
+    revealAnswers() {
+        const answers = this.#answers.map(answer => {
+            return answer.reveal()
+        })
+        return new QuestionModel(this.id, this.title, this.subtitle, answers, false)
+    }
+
     shuffleAnswers(): QuestionModel {
         let shuffledAnswers = shuffle(this.#answers)
         return new QuestionModel(this.#id, this.#title, this.#subtitle, shuffledAnswers, this.#right)

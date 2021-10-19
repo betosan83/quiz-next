@@ -46,8 +46,14 @@ export default function Home() {
   }
 
   function goToNextStep() {
-    const nextId = idNextQuestion()
-    nextId ? goToNextQuestion(nextId) : endSurvey()
+    if (question.answered) {
+      const nextId = idNextQuestion()
+      nextId ? goToNextQuestion(nextId) : endSurvey()
+    } else {
+      if (!question.right) {
+        setQuestion(question.revealAnswers())
+      }
+    }
   }
 
   function goToNextQuestion(nextId: number) {
