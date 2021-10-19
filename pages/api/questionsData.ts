@@ -2,79 +2,13 @@ import AnswerModel from "../../model/answer";
 import QuestionModel from "../../model/question";
 
 const questions: QuestionModel[] = [
-    new QuestionModel(1, 'Quelle est votre mot préféré ?', '', [
-        AnswerModel.wrong('Heureux'),
-        AnswerModel.wrong('Cauchemare'),
-        AnswerModel.wrong('Bonjour'),
-        AnswerModel.right('Cerveaux'),
-    ]),
-    new QuestionModel(2, 'Quelle est votre pays préféré ?', '', [
-        AnswerModel.wrong('Brésil'),
-        AnswerModel.wrong('Italie'),
-        AnswerModel.wrong('États-Unis'),
-        AnswerModel.right('France'),
-    ]),
-    new QuestionModel(3, 'Comment faut-il écrire le participe passé ?', 'Les pommes qu’elle a … sont trop mûres.', [
-        AnswerModel.wrong('acheté'),
-        AnswerModel.wrong('achetée'),
-        AnswerModel.wrong('achetés'),
-        AnswerModel.right('achetées'),
-    ]),
-    new QuestionModel(4, 'Quel nombre est mal écrit ?', '', [
-        AnswerModel.wrong('sept cents millions'),
-        AnswerModel.wrong('Six mille un'),
-        AnswerModel.wrong('Huit cent vingt'),
-        AnswerModel.right('Quatre-vingts-sept'),
-    ]),
-    new QuestionModel(5, 'Complétez la phrase', 'Je vous … ce paquet de la part de Sophie.', [
-        AnswerModel.wrong('emmène'),
-        AnswerModel.wrong('amène'),
-        AnswerModel.wrong('emporte'),
-        AnswerModel.right('apporte'),
-    ]),
-    new QuestionModel(6, 'Dans quelle région se trouve le Mont Saint-Michel ?', '', [
-        AnswerModel.wrong('En Bretagne'),
-        AnswerModel.wrong('Dans les Pays de La Loire'),
-        AnswerModel.wrong('En Île de France '),
-        AnswerModel.right('En Normandie'),
-    ]),
-    new QuestionModel(7, 'Que signifie :', '"Être à la bourre"', [
-        AnswerModel.wrong('Être en avance'),
-        AnswerModel.wrong('Être à l’heure'),
-        AnswerModel.wrong('Être saoul'),
-        AnswerModel.right('Être en retard'),
-    ]),
-    new QuestionModel(8, 'Que signifie :', '“Être radin”', [
-        AnswerModel.wrong('Être généreux'),
-        AnswerModel.wrong('Être chanceux'),
-        AnswerModel.wrong('Être méchant'),
-        AnswerModel.right('Être avare'),
-    ]),
-    new QuestionModel(9, 'Quelle expression n’a pas le même sens que', '“Avoir la banane”', [
-        AnswerModel.wrong('Avoir la patate'),
-        AnswerModel.wrong('Avoir la frite'),
-        AnswerModel.wrong('Avoir la pêche'),
-        AnswerModel.right('Avoir la main verte'),
-    ]),
-    new QuestionModel(10, 'Que signifie l’expression :', '“Il n’y a pas un chat”', [
-        AnswerModel.wrong('Il n’y a rien à manger.'),
-        AnswerModel.wrong('Il n’y a rien à faire.'),
-        AnswerModel.wrong(' Il n’y a rien à voir.'),
-        AnswerModel.right('Il n’y a personne.'),
-    ]),
-    new QuestionModel(11, 'Quelle expression n’a pas le même sens que', '“J’en ai marre”', [
-        AnswerModel.wrong('J’en ai ras-le-bol'),
-        AnswerModel.wrong('J’en ai ma claque'),
-        AnswerModel.wrong('J’en ai assez'),
-        AnswerModel.right('J’en ai trop'),
-    ]),
     new QuestionModel(12, 'Quelle est la bonne réponse ?', '“Il faut que je … le gâteau au four. ”', [
         AnswerModel.wrong('mets'),
         AnswerModel.wrong('met'),
         AnswerModel.wrong('mettes'),
         AnswerModel.right('mette'),
     ]),
-    new QuestionModel(13, 'Quelle est la bonne réponse ?', '“J’espère que tu … à l’heure demain”', [
+    new QuestionModel(13, 'Quelle est la bonne réponse ?', '“J’espère que tu … à l’heure demain.”', [
         AnswerModel.wrong('soit'),
         AnswerModel.wrong('es'),
         AnswerModel.wrong('sois'),
@@ -86,7 +20,7 @@ const questions: QuestionModel[] = [
         AnswerModel.wrong('vas'),
         AnswerModel.right('ailles'),
     ]),
-    new QuestionModel(15, 'Quelle est la bonne réponse ?', '“Elle pense que vous … tort”', [
+    new QuestionModel(15, 'Quelle est la bonne réponse ?', '“Elle pense que vous … tort.”', [
         AnswerModel.wrong('ayez'),
         AnswerModel.wrong('alliez'),
         AnswerModel.wrong('allez'),
@@ -109,6 +43,90 @@ const questions: QuestionModel[] = [
         AnswerModel.wrong('connait'),
         AnswerModel.wrong('connaisses'),
         AnswerModel.right('connais'),
+    ]),
+    new QuestionModel(19, 'Quelle est la bonne réponse ?', '“Pourvu que nous n’... pas trop tard!”', [
+        AnswerModel.wrong('arriverons'),
+        AnswerModel.wrong('arrions'),
+        AnswerModel.wrong('arrivons'),
+        AnswerModel.right('arrivions'),
+    ]),
+    new QuestionModel(20, 'Quelle est la bonne réponse ?', '“Tu feras des exercices jusqu’à ce que tu ... ta leçon.”', [
+        AnswerModel.wrong('compris'),
+        AnswerModel.wrong('comprenent'),
+        AnswerModel.wrong('comprends'),
+        AnswerModel.right('comprennes'),
+    ]),
+    new QuestionModel(21, 'Quelle est la bonne réponse ?', '“J’ai acheté de la farine pour que vous ... faire un gâteau.”', [
+        AnswerModel.wrong('pourriez'),
+        AnswerModel.wrong('pussiez'),
+        AnswerModel.wrong('pouvez'),
+        AnswerModel.right('puissiez'),
+    ]),
+    new QuestionModel(22, 'Quelle est la bonne réponse ?', '“Il est possible que le rendez-vous ... annulé.”', [
+        AnswerModel.wrong('sois'),
+        AnswerModel.wrong('fusse'),
+        AnswerModel.wrong('soyez'),
+        AnswerModel.right('soit'),
+    ]),
+    new QuestionModel(23, 'Quelle est la bonne réponse ?', '“J’ai peur que vous ne ... des bêtises si la baby-sitter ne vient pas ce soir.”', [
+        AnswerModel.wrong('faisiez'),
+        AnswerModel.wrong('fusse'),
+        AnswerModel.wrong('fissiez'),
+        AnswerModel.right('fassiez'),
+    ]),
+    new QuestionModel(24, 'Quelle est la bonne réponse ?', '“Nous aimerions que les jumeaux ... le même cadeau pour leur anniversaire.”', [
+        AnswerModel.wrong('avaient'),
+        AnswerModel.wrong('ait'),
+        AnswerModel.wrong('auront'),
+        AnswerModel.right('aient'),
+    ]),
+    new QuestionModel(25, 'Quelle est la bonne réponse ?', '“Tu avais si faim! Je suis surprise que tu ne ... pas tout.”', [
+        AnswerModel.wrong('mange'),
+        AnswerModel.wrong('mangeas'),
+        AnswerModel.wrong('mangeasses'),
+        AnswerModel.right('manges'),
+    ]),
+    new QuestionModel(26, 'Quelle est la bonne réponse ?', '“Nous nous levons si tard le matin qu’il arrive que nous ... le petit-déjeuner.”', [
+        AnswerModel.wrong('manquisions'),
+        AnswerModel.wrong('manquerons'),
+        AnswerModel.wrong('manquons'),
+        AnswerModel.right('manquions'),
+    ]),
+    new QuestionModel(27, 'Quelle est la bonne réponse ?', '“Je ne pense pas que nous ... au cinéma ce soir.”', [
+        AnswerModel.wrong('allerons'),
+        AnswerModel.wrong('irons'),
+        AnswerModel.wrong('allons'),
+        AnswerModel.right('allions'),
+    ]),
+    new QuestionModel(28, 'Quelle est la bonne réponse ?', '“David espère qu’il ... aller à la fête chez son ami.”', [
+        AnswerModel.wrong('pusses'),
+        AnswerModel.wrong('pu'),
+        AnswerModel.wrong('puisse'),
+        AnswerModel.right('pourra'),
+    ]),
+    new QuestionModel(29, 'Quelle est la bonne réponse ?', '“Je préfère que tu ... déjà à 8 heures.”', [
+        AnswerModel.wrong('venu'),
+        AnswerModel.wrong('venais'),
+        AnswerModel.wrong('viens'),
+        AnswerModel.right('viennes'),
+    ]),
+    new QuestionModel(30, 'Quelle est la bonne réponse ?', '“Vous avez décidé que vous ... en vacances en France.”', [
+        AnswerModel.wrong('partira'),
+        AnswerModel.wrong('partez'),
+        AnswerModel.wrong('partiez'),
+        AnswerModel.right('partirez'),
+    ]),
+    new QuestionModel(31, 'Quelle est la bonne réponse ?', '“Ce chat adore qu’on lui ... des câlins.”', [
+        AnswerModel.wrong('fisse'),
+        AnswerModel.wrong('fasses'),
+        AnswerModel.wrong('fait'),
+        AnswerModel.right('fasse'),
+    ]),
+    new QuestionModel(32, 'Quelle est la bonne réponse ?', '“Bien que nous ... vite., il faudra encore trois semaines pour tout régler.”', [
+        AnswerModel.wrong('travaillassions'),
+        AnswerModel.wrong('travaillerons'),
+        AnswerModel.wrong('travaillons'),
+        AnswerModel.right('travaillions'),
     ]),
   
 ]
