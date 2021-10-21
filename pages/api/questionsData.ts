@@ -128,7 +128,15 @@ const questions: QuestionModel[] = [
         AnswerModel.wrong('travaillons'),
         AnswerModel.right('travaillions'),
     ]),
+    new QuestionModel(33, 'Quelle est la bonne réponse ?', '“Il faut que nous ... des économies.”', [
+        AnswerModel.wrong('fattons'),
+        AnswerModel.wrong('faision'),
+        AnswerModel.wrong('fasions'),
+        AnswerModel.right('fassions'),
+    ]),
   
+
+    
 ]
 
 export default questions
