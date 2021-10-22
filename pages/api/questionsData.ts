@@ -134,6 +134,12 @@ const questions: QuestionModel[] = [
         AnswerModel.wrong('fasions'),
         AnswerModel.right('fassions'),
     ]),
+    new QuestionModel(34, 'Quelle est la bonne réponse ?', '“Je doute qu’ils ... raison.”', [
+        AnswerModel.wrong('avaients'),
+        AnswerModel.wrong('ont'),
+        AnswerModel.wrong('avaient'),
+        AnswerModel.right('aient'),
+    ]),
   
 
     
