@@ -1,4 +1,11 @@
 module.exports = {
-  assetPrefix: '/quiz-next/',
+  async rewrites() {
+    return [
+      {
+        source: '/api/survey',
+        destination: 'https://betosan83.github.io/quiz-next/api/survey',
+      },
+    ]
+  },
   reactStrictMode: true
 }
