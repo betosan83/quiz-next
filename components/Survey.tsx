@@ -23,7 +23,7 @@ export default function Survey(props: SurveyProps) {
             {props.question ? 
                 <Question
                     value={props.question}
-                    timeToAnswer={6}
+                    timeToAnswer={15}
                     onResponse={onResponse}
                     timeOut={props.goToNextStep} />
                 : false
