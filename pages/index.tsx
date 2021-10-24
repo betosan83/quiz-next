@@ -3,7 +3,7 @@ import Survey from '../components/Survey'
 import QuestionModel from '../model/question'
 import  { useRouter } from 'next/router'
 
-const BASE_URL = 'https://betosan83.github.io/quiz-next/api/survey'
+const BASE_URL = 'https://betosan83.github.io/quiz-next/api'
 
 export default function Home() {
   const router = useRouter()
