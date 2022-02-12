@@ -3,11 +3,9 @@ module.exports = {
     return [
       {
         source: '/api/survey',
-        destination: 'https://betosan83.github.io/quiz-next/api/survey',
+        destination: '/api/survey',
       },
     ]
   },
-  basePath: '/quiz-next',
-  assetPrefix: '/quiz-next',
   reactStrictMode: true
 }
